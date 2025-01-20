@@ -5,9 +5,12 @@ from time import sleep
 DUMP1090DATAURL = "http://localhost:8080/data/aircraft.json"
 
 class FlightData():
-    def __init__(self, data_url = DUMP1090DATAURL, flight_log_number = 0):
+    def __init__(self, data_url = DUMP1090DATAURL, flight_log_number = 0, flight_folder=None):
 
         self.data_url = data_url
+	#ADJUSTMENTS
+        self.flight_log_number = flight_log_number
+        self.flight_folder = flight_folder if flight_folder else "/home/rund0wn5/fly-catcher-logs"  # Default value
 
         self.refresh()
 

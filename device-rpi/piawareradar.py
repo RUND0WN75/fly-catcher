@@ -126,7 +126,8 @@ flight_log_number = 1  # Replace with appropriate value if dynamically determine
 
 #get the flight data
 print(piaware_url)
-myflights = FlightData(data_url = "http://localhost:8080/data/aircraft.json", flight_log_number = flight_log_number, flight_folder = FLIGHTLOGS)
+#myflights = FlightData(data_url = "http://localhost:8080/data/aircraft.json", flight_log_number = flight_log_number, flight_folder = FLIGHTLOGS)
+myflights = FlightData(data_url="http://localhost:8080/data/aircraft.json", flight_log_number=flight_log_number)
 
 done = False
 next_refresh = pygame.time.get_ticks()
