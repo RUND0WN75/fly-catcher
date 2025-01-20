@@ -10,7 +10,7 @@
 </p>
 
 <details>
-  <summary><b>Table of Contents</b></summary>
+  <summary><b>Table of CONTENTS</b></summary>
   <p>
   
 - **Getting Started**
