@@ -15,6 +15,17 @@ from copy import deepcopy
 from threading import Timer
 import os
 
+#ADJUSTMENT #2
+# Initialize FLIGHTLOGS directory
+FLIGHTLOGS = os.path.join(os.path.expanduser("~"), "fly-catcher-logs")
+if not os.path.exists(FLIGHTLOGS):
+    os.makedirs(FLIGHTLOGS)
+if not os.access(FLIGHTLOGS, os.W_OK):
+    raise PermissionError(f"Cannot write to flight logs directory: {FLIGHTLOGS}")
+
+# Use FLIGHTLOGS wherever required
+print(f"Flight logs will be saved in: {FLIGHTLOGS}")
+
 def lat_lon_to_x_y(lat, lon):
     x, y = GPSUtils.lat_lon_to_x_y(lat, lon)
     x = int(x)
@@ -108,6 +119,10 @@ home_x, home_y = lat_lon_to_x_y(args.lat, args.lon)
 #startup the radar
 radar = Radar(screen, RADARRECT, radar_pos = (home_x, home_y), scale = scale, back_col = BLACK, radar_col = GREEN)
 radar.start()
+
+#ADJUSTMENT #1
+# Before the FlightData initialization
+flight_log_number = 1  # Replace with appropriate value if dynamically determined
 
 #get the flight data
 print(piaware_url)
